@@ -96,7 +96,7 @@ figure (2);
 
 energy_time = linspace(t0,tf,length(energy));
 
-% plot relative differnece (E(t)-E(0))/E(0)
+% plot relative difference (E(t)-E(0))/E(0)
 subplot(1,2,1)
 plot(energy_time,(energy-energy(1))./energy(1))
 title('Energy of solution','Interpreter','latex')
