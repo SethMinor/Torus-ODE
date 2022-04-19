@@ -87,21 +87,3 @@ grid on
 xlabel('$x$','Interpreter','latex')
 ylabel('$y$','Interpreter','latex')
 title('2D Cartesian','Interpreter','latex')
-
-%% compute Hamiltonian
-% [energy,classic,curve,quantum] = hamiltonian(y(:,1),y(:,2),q1,q2,p,r,R,c,cap);
-% 
-% figure (1);
-% 
-% plot(t,energy,'-x',t,classic,'-x',t,curve,'-x')
-% hold on
-% plot(t,quantum,'-x')
-% 
-% title('Total energy of orbit','interpreter','latex')
-% xlabel('$t$','interpreter','latex')
-% ylabel('$H(t) - H_0$','interpreter','latex')
-% legend('Total energy','Classical energy','Curvature energy',...
-%     'Quantum energy','interpreter','latex')
-% grid on
-
-%plot H(t)-H0
