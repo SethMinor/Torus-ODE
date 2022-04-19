@@ -13,3 +13,6 @@
 
 ## *vortex_velocity.m* and *complexpotential.m*
 > MATLAB functions that computes the physical velocity of a set of vortices and their corresponding complex potential function, respectively, using a relation involving Jacobi theta functions is used (see [_Fetter et. al._](https://journals.aps.org/pra/pdf/10.1103/PhysRevA.101.053606?casa_token=Y-7DK7Ny6GYAAAAA%3A6d0WPKGSS2jhegscwXxLSe6u0O6XRoSd-A1o1ET2RzNMRYmkRlpXAkEkiH7Ydck_I-JDhGq016_pfQ) for more details). 
+
+## *hamiltonian.m*
+> This function computes the total energy of a system of vortices; it also returns classical, quantum and surface curvature contributions.
