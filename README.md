@@ -8,7 +8,7 @@
 ## *vortex_simulation.m*
 > Driver code for vortex simulation; choose how many vortices you'd like to see the dynamics of here, as well as their starting locations (isothermal coordinates).
 
-## *jacobitheta1.m* and *jacobitheta1.m*
+## *jacobitheta1.m* and *Djacobitheta1.m*
 > Crude MATLAB function files to compute the first several terms (double precision is usually reached before a truncation of 15 or so terms) of the first Jacobi theta function and its derivative. 
 
 ## *vortex_velocity.m* and *complexpotential.m*
