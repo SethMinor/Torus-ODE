@@ -54,6 +54,7 @@ Y = (R+r*cos(Theta)).*sin(Phi);
 Z = r*sin(Theta);
 
 %% plot the entire solution 
+
 figure (1);
 
 % toriodal-poloidal
@@ -66,6 +67,19 @@ title('Toroidal-Poloidal','Interpreter','latex')
 
 % 3D Cartesian
 subplot(2,2,2)
+% plot the torus
+% (see Sathyanarayan Rao,
+% 'Visualizing a Toroidal Surface (Torus) in Matlab')
+utorus = linspace(0,2*pi);
+vtorus = linspace(0,2*pi);
+[Utorus,Vtorus] = meshgrid(utorus,vtorus);
+Xtorus = (R+r.*cos(Vtorus)).*cos(Utorus);
+Ytorus = (R+r.*cos(Vtorus)).*sin(Utorus);
+Ztorus = r.*sin(Vtorus);
+surf(Xtorus, Ytorus, Ztorus);
+colormap('gray')
+shading interp;
+hold on
 plot3(X,Y,Z)
 grid on
 xlabel('$x$','Interpreter','latex')
@@ -92,13 +106,13 @@ title('2D Cartesian','Interpreter','latex')
 %% compute and plot Hamiltonian
 [energy,classic,curve,quantum] = hamiltonian(U,V,N,q,p,c,r,R,cap);
 
-figure (2);
+figure (3);
 
 energy_time = linspace(t0,tf,length(energy));
 
 % plot relative difference (E(t)-E(0))/E(0)
 subplot(1,2,1)
-plot(energy_time,(energy-energy(1))./energy(1))
+plot(energy_time,((energy-energy(1))./energy(1)))
 title('Energy of solution','Interpreter','latex')
 grid on
 xlabel('$t$','Interpreter','latex')
@@ -106,9 +120,9 @@ ylabel('$\frac{H(t)-H_0}{H_0}$','Interpreter','latex')
 
 % plot each energy contribution
 subplot(1,2,2)
-plot(energy_time,energy,energy_time,classic)
+plot(energy_time,energy,'-',energy_time,classic,'--')
 hold on
-plot(energy_time,curve,energy_time,quantum)
+plot(energy_time,curve,'--',energy_time,quantum,'--')
 grid on
 xlabel('$t$','Interpreter','latex')
 ylabel('Energie coontributions','Interpreter','latex')
