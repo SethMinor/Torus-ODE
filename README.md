@@ -3,7 +3,7 @@
 
 1. [Repo link](https://github.com/SethMinor/Torus-ODE)
 
-2. [Research advisor](https://carretero.sdsu.edu/publications/index.html#papers)
+2. [Research advisor's paper](https://carretero.sdsu.edu/publications/index.html#papers)
 
 ## *vortex_simulation.m*
 > Driver code for vortex simulation; choose how many vortices you'd like to see the dynamics here, as well as there starting locations (isothermal coordinates).
