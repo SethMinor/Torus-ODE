@@ -21,7 +21,6 @@ w2_0 = (3*pi) + 1i*(0); % negative vortex
 q2 = -1;
 q = [q1 q2]; % vector of vortex charges
 N = length(q); % keeping track of number of vortices
-% create vortex class in matlab?
 
 % real and imaginary parts of isothermal coords
 u1_0 = real(w1_0); v1_0 = imag(w1_0);
