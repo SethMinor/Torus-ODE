@@ -11,16 +11,17 @@ c = sqrt(R^2 - r^2);
 lambda =@(v) c./(R-r*cos(v./r));
 
 % Jacobi theta function parameters
-cap = 20; % truncation error
+cap = 12; % truncation error
 p = exp(-pi*r/c); % nome (for double periodicity)
 
 % complex potential stuff, example intial vortex positions
-w1_0 = (-3*pi) + 1i*(-6); % positive vortex
+w1_0 = (-2.3*pi) + 1i*(-3); % positive vortex
 q1 = 1;
-w2_0 = (3*pi) + 1i*(0); % negative vortex
+w2_0 = (1*pi) + 1i*(1); % negative vortex
 q2 = -1;
 q = [q1 q2]; % vector of vortex charges
 N = length(q); % keeping track of number of vortices
+% create vortex class in matlab?
 
 % real and imaginary parts of isothermal coords
 u1_0 = real(w1_0); v1_0 = imag(w1_0);
@@ -29,8 +30,9 @@ u2_0 = real(w2_0); v2_0 = imag(w2_0);
 % integrate these guys
 t0 = 0; tf = 1600;
 timespan = [t0 tf];
-reltolerance = 1e-13; % relative tolerance
-abstolerance = 1e-13; % absolute tolerance, for integration
+reltolerance = 1e-12; % relative tolerance
+abstolerance = 1e-12; % absolute tolerance, for integration
+% this also controls precision of total energy
 
 y0 = [u1_0 u2_0 v1_0 v2_0];
 options=odeset('Reltol',reltolerance,'Abstol',abstolerance);
@@ -86,3 +88,29 @@ grid on
 xlabel('$x$','Interpreter','latex')
 ylabel('$y$','Interpreter','latex')
 title('2D Cartesian','Interpreter','latex')
+
+%% compute and plot Hamiltonian
+[energy,classic,curve,quantum] = hamiltonian(U,V,N,q,p,c,r,R,cap);
+
+figure (2);
+
+energy_time = linspace(t0,tf,length(energy));
+
+% plot relative differnece (E(t)-E(0))/E(0)
+subplot(1,2,1)
+plot(energy_time,(energy-energy(1))./energy(1))
+title('Energy of solution','Interpreter','latex')
+grid on
+xlabel('$t$','Interpreter','latex')
+ylabel('$\frac{H(t)-H_0}{H_0}$','Interpreter','latex')
+
+% plot each energy contribution
+subplot(1,2,2)
+plot(energy_time,energy,energy_time,classic)
+hold on
+plot(energy_time,curve,energy_time,quantum)
+grid on
+xlabel('$t$','Interpreter','latex')
+ylabel('Energie coontributions','Interpreter','latex')
+legend('Total, $H$','Classic','Curvature',...
+    'Quantum','Interpreter','latex')
