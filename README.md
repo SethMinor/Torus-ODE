@@ -18,4 +18,4 @@
 > This function computes the total energy of a system of vortices; it also returns classical, quantum and surface curvature contributions.
 
 ## *plotwrapped.m*
-> A MATLAB function to okit data wrapped on the surface of a torus nicely.
+> A MATLAB function to plot data wrapped on the surface of a torus nicely (based on MATLAB's `wrapToPi` command).
