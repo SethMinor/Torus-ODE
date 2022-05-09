@@ -38,6 +38,22 @@ y0 = [u1_0 u2_0 v1_0 v2_0];
 options=odeset('Reltol',reltolerance,'Abstol',abstolerance);
 [t,y] = ode45('vortex_velocity',timespan,y0,options,N,q,r,R,c,p,cap);
 
+% Numerical Jacobian, Eigenvalues
+NN=length(y0);
+Jnum=[];
+if(exist('dh')==0) dh=1e-4; end
+
+for jj=1:NN
+ pert=zeros(NN,1);
+ pert(jj)=dh*norm(y);
+ ypert=y0(:)+pert;
+ rhs = vortex_velocity([],ypert,[],N,q,r,R,c,p,cap);
+ drhs = rhs./(dh*norm(y));
+ Jnum(:,jj) = drhs;
+end
+disp(Jnum);
+[XX,DD] = eig(Jnum);
+
 % vortices in isothermal coordinates
 U = y(:,1:N); % u-coords
 V = y(:,(1+N):2*N); % v-coords
