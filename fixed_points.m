@@ -46,9 +46,3 @@ c = sqrt(R^2 - r^2); p = exp(-pi*r/c); cap = 12;
     dydt = vortex_velocity([],z,[],N,q,r,R,c,p,cap);
     S = sqrt(dydt);
 end
-
-
-
-
-
-
