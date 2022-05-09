@@ -19,3 +19,6 @@
 
 ## *plotwrapped.m*
 > A MATLAB function to plot data wrapped on the surface of a torus nicely (based on MATLAB's `wrapToPi` command).
+
+## *ManyOrbitsOneTorus.m*
+> A MATLAB function to plot multiple trajectories simultaneously as a parameter is varied, integrated using *vortex_simulation.m*.
