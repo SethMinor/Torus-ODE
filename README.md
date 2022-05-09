@@ -22,3 +22,6 @@
 
 ## *ManyOrbitsOneTorus.m*
 > A MATLAB function to plot multiple trajectories simultaneously as a parameter is varied, integrated using *vortex_simulation.m*.
+
+## *fixed_points.m*
+> A script that takes an initial guess (seed) of a fixed point `zstar` of the torus ODE's and iteratively searches for a solution to the corresponding nonlinear least squares problem (using the Levenberg-Marquardt algorithm option).
