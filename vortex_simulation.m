@@ -75,11 +75,14 @@ figure (1);
 
 % toriodal-poloidal
 subplot(2,2,1)
-plot(Phi./(2*pi),Theta./(2*pi))
-grid on
-xlabel('$\frac{\phi}{2\pi}$','Interpreter','latex')
-ylabel('$\frac{\theta}{2\pi}$','Interpreter','latex')
-title('Toroidal-Poloidal','Interpreter','latex')
+hold on
+plotwrapped(Phi(:,1),Theta(:,1),1, [-pi pi],[-pi pi], 0.05,bluey)
+plotwrapped(Phi(:,2),Theta(:,2),1, [-pi pi],[-pi pi], 0.05,orangu)
+hold off
+xlabel('$\phi$','Interpreter','latex')
+ylabel('$\theta$','Interpreter','latex')
+title('Toroidal-Poloidal','Interpreter','latex','FontSize',12)
+xlim([-pi pi])
 
 % 3D Cartesian
 subplot(2,2,2)
