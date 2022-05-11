@@ -21,7 +21,7 @@
 > A MATLAB function to plot data wrapped on the surface of a torus nicely (based on MATLAB's `wrapToPi` command).
 
 ## *ManyOrbitsOneTorus.m*
-> A MATLAB function to plot multiple trajectories simultaneously as a parameter is varied, integrated using *vortex_simulation.m*.
+> A MATLAB function to plot multiple trajectories simultaneously as a parameter is varied, integrated using *vortex_velocity.m*.
 
 ## *fixed_points.m*
 > A script that takes an initial guess (seed) of a fixed point `zstar` of the torus ODE's and iteratively searches for a solution to the corresponding nonlinear least squares problem (using the Levenberg-Marquardt algorithm option).
